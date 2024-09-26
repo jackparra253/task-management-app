@@ -1,0 +1,19 @@
+<!-- src/app/app.component.html -->
+
+<mat-toolbar color="primary">
+  <span>{{ title }}</span>
+  <span class="spacer"></span>
+  <ng-container *ngIf="isLoggedIn; else loggedOut">
+    <button mat-button routerLink="/tasks">Tasks</button>
+    <button mat-button routerLink="/tasks/new">New Task</button>
+    <button mat-button (click)="logout()">Logout</button>
+  </ng-container>
+  <ng-template #loggedOut>
+    <button mat-button routerLink="/login">Login</button>
+    <button mat-button routerLink="/register">Register</button>
+  </ng-template>
+</mat-toolbar>
+
+<div class="container">
+  <router-outlet></router-outlet>
+</div>
